@@ -25,7 +25,7 @@ jobs:
 
 #      - name: Build with Maven
 #        run: mvn -B
-      - name: Analyze with SonarCloud
+      - name: Build & Test
         run: mvn clean verify sonar:sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
