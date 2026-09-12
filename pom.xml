@@ -28,6 +28,18 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<sonar.projectKey>PrinceChoudhary8_cicdpipeline</sonar.projectKey>
+<!--		<sonar.projectName>Your Project Name</sonar.projectName>-->
+		<jacoco.version>0.8.13</jacoco.version>
+
+		<!-- SonarQube Server URL -->
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
+		<!-- Organization - mainly for SonarQube Cloud -->
+		<sonar.organization>princechoudhary8</sonar.organization>
+		<sonar.java.binaries>
+			target/classes
+		</sonar.java.binaries>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -38,6 +50,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.jacoco</groupId>-->
+<!--			<artifactId>jacoco-maven-plugin</artifactId>-->
+<!--			<version>0.8.13</version>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.mysql</groupId>
@@ -62,7 +79,30 @@
 	</dependencies>
 
 	<build>
+
 		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.13</version>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
