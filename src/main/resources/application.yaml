@@ -2,19 +2,22 @@ spring:
   application:
     name: cicdpipeline
 
-  datasource:
-    url: jdbc:mysql://localhost:3306/product
-    username: root
-    password: Raja@123
+  profiles:
+    active: prod
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        highlight_sql: true
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/product
+#    username: root
+#    password: Raja@123
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        highlight_sql: true
 
 server:
   port: 9090
